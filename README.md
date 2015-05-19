@@ -25,7 +25,7 @@ For an example, see [ndarray-householder-qr](https://github.com/scijs/ndarray-ho
 
 ## Usage
 
-##### `triangularize( A_r, A_i, d_r, d_i )`
+##### `factor( A_r, A_i, d_r, d_i )`
 Computes the in-place triangularization of `A` given `A_r` and `A_i` (the real and imaginary components of `A`), returning the Householder reflectors in the lower-triangular portion of `A` (including the diagonal) and `R` in the upper-triangular portion of `A` (excluding diagonal) with the diagonal of `R` stored in `d_r` and `d_i`. `d_r` and `d_i` must be one-dimensional vectors with length at least `n`.
 
 ##### `multByQ( A_r, A_i, x_r, x_i )`
@@ -43,8 +43,8 @@ Compute the in-place QR factorization of A, storing R in A and outputting Q in Q
 
 ##### `solve( A_r, A_i, d_r, d_i, x_r, x_i )`
 Use the previously-calculated triangularization to find the vector x that minimizes the L-2 norm of (Ax - b). Note that the vector b is modified in the process.
-- `A_r` and `A_i` are the real/imag components of the in-place factored matrix computed by `triangularize`
-- `d_r` and `d_i` are the real/imag components of the diagonal of `R` computed by `triangularize`
+- `A_r` and `A_i` are the real/imag components of the in-place factored matrix computed by `factor`
+- `d_r` and `d_i` are the real/imag components of the diagonal of `R` computed by `factor`
 - `x_r` and `x_i` are the real/imag components of the input vector of length m. The answer is computed in-place in the first n entries of `x`. The remaining entries are zero.
 
 

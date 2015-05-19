@@ -62,7 +62,7 @@ describe("Householder QR", function() {
   })
 
   it('decomposes and reconstructs the matrix',function() {
-    assert( householder.triangularize(A_r,A_i,d_r,d_i), 'A is triangularized' )
+    assert( householder.factor(A_r,A_i,d_r,d_i), 'A is factored' )
 
     // Copy the upper-triangular part into a new matrix R:
     blas.copy( d_r, d_i, diag(R_r), diag(R_i) )
@@ -82,7 +82,7 @@ describe("Householder QR", function() {
   })
 
   it('solves a system of complex linear equations',function() {
-    assert( householder.triangularize(A_r,A_i,d_r,d_i), 'A is triangularized' )
+    assert( householder.factor(A_r,A_i,d_r,d_i), 'A is factored' )
     assert( householder.solve(A_r,A_i,d_r,d_i,b_r,b_i), 'Solution succeeds' )
     assert( ndt.approximatelyEqual( b_r, x_r, 1e-4 ), 'Re(A^-1*b) = x' )
     assert( ndt.approximatelyEqual( b_i, x_i, 1e-4 ), 'Im(A^-1*b) = x' )
