@@ -25,7 +25,6 @@ function show(label,data) {
 
 
 describe("Householder QR", function() {
-
   var m,n,A_r,A_i,b_r,b_i,x,d_r,d_i,Q_r,Q_i,R_r,R_i,QR_i,QR_r,A0_r,A0_i,b_r,b_i,x_r,x_i
 
   beforeEach(function() {
@@ -86,7 +85,7 @@ describe("Householder QR", function() {
     assert( householder.solve(A_r,A_i,d_r,d_i,b_r,b_i), 'Solution succeeds' )
     assert( ndt.approximatelyEqual( b_r, x_r, 1e-4 ), 'Re(A^-1*b) = x' )
     assert( ndt.approximatelyEqual( b_i, x_i, 1e-4 ), 'Im(A^-1*b) = x' )
-    
+
 
   })
 
